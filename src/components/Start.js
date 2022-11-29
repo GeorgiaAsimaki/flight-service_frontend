@@ -6,6 +6,11 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
 
+import Button from '@mui/material/Button';
+
+
+
+
 import Switch from './Switch';
 import Dates from './Dates';
 
@@ -15,15 +20,17 @@ export default function SelectLabels() {
   const [origin, setOrigin] = React.useState('');
   const [destination, setDestination] = React.useState('');
   const [value, setValue] = React.useState(false);
-  const [form,setForm] = React.useState(false);
+  const [formdest,setFormDest] = React.useState(false);
+  const [formor,setFormOr] = React.useState(false);
 
   const handleOrigin = (event) => {
     setOrigin(event.target.value);
+    setFormOr(true);
   };
 
   const handleDestination = (event) => {
     setDestination(event.target.value);
-    setForm(true);
+    setFormDest(true);
   };
 
   return (
@@ -73,7 +80,7 @@ export default function SelectLabels() {
                       <FormHelperText>Choose Destination</FormHelperText>
               </FormControl>
           </Grid>
-          {form && (
+          {formor && formdest && (
               <>
               <Grid item xs={12}>
                 <FormControl sx={{m: 2, top:100,  minWidth: 220 }}>
@@ -97,9 +104,18 @@ export default function SelectLabels() {
                     </FormControl>
                 </Grid>
               )}
+
+              <Grid item xs={12}>
+                <FormControl sx={{m: 2, top:100,  minWidth: 220 }}>
+                    <Button variant="contained" href="results" bgColor="red">
+                        Search
+                    </Button>
+                </FormControl>
+              </Grid>
               </>
           )}
         </Grid>
+
     </div>
   );
 }

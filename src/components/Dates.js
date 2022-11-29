@@ -1,11 +1,10 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
 import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
+
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 
 export default function ResponsiveDatePickers({ date }) {
@@ -23,7 +22,7 @@ export default function ResponsiveDatePickers({ date }) {
   return (
 
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-        {date=="departure" && (
+        {date==="departure" && (
         <DesktopDatePicker
           label="Departure date"
           value={departure}
@@ -32,7 +31,7 @@ export default function ResponsiveDatePickers({ date }) {
           renderInput={(params) => <TextField {...params} />}
         />
         )}
-        {date=="return" && (
+        {date==="return" && (
             <DesktopDatePicker
                       label="Return date"
                       value={ret}

@@ -1,11 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Start from './components/Start';
+import Results from './components/Results';
+
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Start />
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" >
+                <Route index element={<Start />} />
+                <Route path="results" element={<Results />} />
+            </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
