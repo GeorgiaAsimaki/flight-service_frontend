@@ -6,13 +6,16 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
 
-import Switch from './Switch'
+import Switch from './Switch';
+import Dates from './Dates';
+
 
 export default function SelectLabels() {
 
   const [origin, setOrigin] = React.useState('');
   const [destination, setDestination] = React.useState('');
   const [value, setValue] = React.useState(false);
+  const [form,setForm] = React.useState(false);
 
   const handleOrigin = (event) => {
     setOrigin(event.target.value);
@@ -20,13 +23,14 @@ export default function SelectLabels() {
 
   const handleDestination = (event) => {
     setDestination(event.target.value);
+    setForm(true);
   };
 
   return (
     <div>
         <Grid container>
           <Grid item xs={12}>
-              <FormControl sx={{m: 2,  minWidth: 220 }}>
+              <FormControl sx={{m: 2, top:100,  minWidth: 220 }} >
                 <InputLabel id="demo-simple-select-helper-label">ORIGIN</InputLabel>
                 <Select
                   labelId="demo-simple-select-helper-label"
@@ -48,7 +52,7 @@ export default function SelectLabels() {
               </FormControl>
           </Grid>
           <Grid item xs={12}>
-              <FormControl sx={{ m: 2, minWidth: 220 }}>
+              <FormControl sx={{ m: 2,top:100, minWidth: 220 }}>
                       <InputLabel id="demo-simple-select-helper-label">DESTINATION</InputLabel>
                       <Select
                         labelId="demo-simple-select-helper-label"
@@ -69,12 +73,32 @@ export default function SelectLabels() {
                       <FormHelperText>Choose Destination</FormHelperText>
               </FormControl>
           </Grid>
-          <Grid item xs={12}>
-            <FormControl sx={{m: 2,  minWidth: 220 }}>
-                <Switch isOn={value} handleToggle={() => {setValue(!value); alert(value);}}/>
-                <FormHelperText>Round trip</FormHelperText>
-            </FormControl>
-          </Grid>
+          {form && (
+              <>
+              <Grid item xs={12}>
+                <FormControl sx={{m: 2, top:100,  minWidth: 220 }}>
+                    <Switch isOn={value} handleToggle={() => {setValue(!value);}}/>
+                    <FormHelperText>Round trip</FormHelperText>
+                </FormControl>
+              </Grid>
+
+              <Grid item xs={12}>
+                 <FormControl sx={{m: 2, top:100, minWidth: 220 }}>
+                        <Dates date="departure" />
+                        <FormHelperText>Choose departure date</FormHelperText>
+                 </FormControl>
+              </Grid>
+
+              {value && (
+                <Grid item xs={12}>
+                    <FormControl sx={{m: 2, top:100,  minWidth: 220 }}>
+                        <Dates date="return" />
+                        <FormHelperText>Choose return date</FormHelperText>
+                    </FormControl>
+                </Grid>
+              )}
+              </>
+          )}
         </Grid>
     </div>
   );
