@@ -107,9 +107,10 @@ export default function SelectLabels() {
 
               <Grid item xs={12}>
                 <FormControl sx={{m: 2, top:100,  minWidth: 220 }}>
-                    <Button variant="contained" href="results" bgColor="red">
+                    <Button variant="contained" href="results">
                         Search
                     </Button>
+
                 </FormControl>
               </Grid>
               </>
