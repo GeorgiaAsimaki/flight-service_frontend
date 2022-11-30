@@ -18,7 +18,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import Switch from './Switch'
 
 
-export default function Passenger() {
+export default function Passenger({num}) {
 
     // States for registration
     const [firstname, setFirstName] = useState('');
@@ -55,9 +55,9 @@ export default function Passenger() {
     }
 
     return (
-        <Grid container>
-            <Grid item xs={12}>
-                <FormControl sx={{m: 2, top:20,  minWidth: 220 }} >
+         <Box sx={{ width: '100%' }}>
+            <Box sx={{ bgcolor:'#f5f5f5' }}>
+                <FormControl sx={{m: 1, top:10,  minWidth: 220 }} >
 
                     <TextField
                         required
@@ -67,31 +67,27 @@ export default function Passenger() {
                         value={firstname}
                     />
                 </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-             <FormControl sx={{m: 2, top:20,  minWidth: 220 }} >
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Last Name"
-                    onChange={handleLastName}
-                    value={lastname}
-                />
-            </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-                <FormControl sx={{m: 2, top:20,  minWidth: 220 }} >
-                <TextField
-                    required
-                    id="outlined-required"
-                    label="Nationality"
-                    onChange={handleNation}
-                    value={nationality}
-                />
-            </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-                <FormControl sx={{m: 2, top:20,  minWidth: 220 }} >
+                 <FormControl sx={{m: 1, top:10,  minWidth: 220 }} >
+                    <TextField
+                        required
+                        id="outlined-required"
+                        label="Last Name"
+                        onChange={handleLastName}
+                        value={lastname}
+                    />
+                </FormControl>
+
+                <FormControl sx={{m: 1, top:10,  minWidth: 220 }} >
+                    <TextField
+                        required
+                        id="outlined-required"
+                        label="Nationality"
+                        onChange={handleNation}
+                        value={nationality}
+                    />
+                </FormControl>
+
+                <FormControl sx={{m: 1, top:10,  minWidth: 120 }} >
                     <TextField
                         required
                         id="outlined-required"
@@ -101,9 +97,8 @@ export default function Passenger() {
                     />
                 <FormHelperText>Identification (NIF or passport)</FormHelperText>
                 </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-                 <FormControl sx={{m: 2, top:20,  minWidth: 220 }} >
+
+                 <FormControl sx={{m: 1, top:10,  minWidth: 220 }} >
                     <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
@@ -119,8 +114,7 @@ export default function Passenger() {
                         </Select>
                     <FormHelperText>Choose your Age range</FormHelperText>
                  </FormControl>
-             </Grid>
-             <Grid item xs={12}>
+
                 <FormControl sx={{m: 2, top:10,  minWidth: 220 }}>
                     <Switch isOn={value} handleToggle={() => {setValue(!value);}}/>
                     <FormHelperText>Will you be carrying bags?</FormHelperText>
@@ -128,16 +122,14 @@ export default function Passenger() {
                         <h6 style={{ color: 'red' , font: 'Arial'}}>Warning! There might be extra charges.</h6>
                     )}
                 </FormControl>
-             </Grid>
-             <Grid item xs={12}>
+
                 <FormControl sx={{m: 2,  minWidth: 220 }}>
                     <Button variant="contained" href="complete" >
                         SUBMIT
                     </Button>
                 </FormControl>
-             </Grid>
-
-        </Grid>
+            </Box>
+         </Box>
 
     );
 

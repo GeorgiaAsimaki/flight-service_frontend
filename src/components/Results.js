@@ -18,15 +18,15 @@ const Results = () => {
 
 
     const [input,setInput]=React.useState([
-        {"id":1,"flightNumber":"RY20233","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-22T09:00:00","timeTransit":"2:00","scalesNumber":"0", "allowLuggage":true,"price":"200","tripType":false},
-        {"id":2,"flightNumber":"AE00233","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-22T10:00:00","timeTransit":"1:00","scalesNumber":"1", "allowLuggage":false, "price":"300","tripType":true},
-        {"id":3,"flightNumber":"IB33456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-22T09:30:00","timeTransit":"3:00","scalesNumber":"2", "allowLuggage":true, "price":"500","tripType":true},
+        {"id":1,"flightNumber":"RY20233","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-22 09:00:00","transitTime":"2:00", "allowLuggage":true,"layoverNumber":"0","price":"200"},
+        {"id":2,"flightNumber":"AE00233","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-22 10:00:00","transitTime":"1:00","allowLuggage":false, "layoverNumber":"1", "price":"300"},
+        {"id":3,"flightNumber":"IB33456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-22 09:30:00","transitTime":"3:00", "allowLuggage":true,"layoverNumber":"2", "price":"500"},
     ]);
 
     const [ret,setReturn]=React.useState([
-        {"id":5,"flightNumber":"RY19999","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-26T09:00:00","timeTransit":"2:00","scalesNumber":"0", "allowLuggage":true,"price":"200","tripType":false},
-        {"id":6,"flightNumber":"AE20599","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-28T10:00:00","timeTransit":"1:00","scalesNumber":"1", "allowLuggage":false, "price":"300","tripType":true},
-        {"id":8,"flightNumber":"IB70456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-27T09:00:00","timeTransit":"2:00","scalesNumber":"2", "allowLuggage":false, "price":"200","tripType":false}
+        {"id":5,"flightNumber":"RY19999","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-26T09:00:00","transitTime":"2:00", "allowLuggage":true,"layoverNumber":"0","price":"200"},
+        {"id":6,"flightNumber":"AE20599","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-28T10:00:00","transitTime":"1:00", "allowLuggage":false, "layoverNumber":"1", "price":"300"},
+        {"id":8,"flightNumber":"IB70456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-27T09:00:00","transitTime":"2:00","allowLuggage":false, "layoverNumber":"2","price":"200"}
 
     ]);
 
