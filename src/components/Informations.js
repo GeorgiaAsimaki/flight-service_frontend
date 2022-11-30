@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+import {Routes, Route, useNavigate} from 'react-router-dom';
+
 const bull = (
   <Box
     component="span"
@@ -15,11 +17,18 @@ const bull = (
   </Box>
 );
 
-const Informations = ({company, companyF, flightNum, timeDep, dateDep, timeTransit, layover, layoverF, layoverNum, luggage, luggageF, price}) => {
+const Informations = ({company, companyF, flightNum, dateDep, timeTransit, layover, layoverF, layoverNum, luggage, luggageF, price}) => {
+
+    const [pick,setPick]=React.useState('');
+    const navigate = useNavigate();
+    const handlePick = () => {
+        setPick(flightNum);
+        navigate('/passenger');
+    }
   return (
     <>
         {(companyF=='All' || company==companyF) && (luggageF===false || (luggageF===true && luggage)) && (
-                <Card sx={{ minWidth: 175 }} variant="outlined">
+                <Card sx={{ minWidth: 175 }} variant="outlined" onClick={handlePick}>
                   <CardContent>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                       {company}
@@ -28,7 +37,7 @@ const Informations = ({company, companyF, flightNum, timeDep, dateDep, timeTrans
                       {flightNum}
                     </Typography>
                     <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                      {dateDep} {timeDep}
+                      {dateDep.replaceAll("T","  ")}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Transit time: {timeTransit}
