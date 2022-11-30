@@ -26,7 +26,7 @@ const Results = () => {
     const [ret,setReturn]=React.useState([
         {"id":5,"flightNumber":"RY19999","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-26T09:00:00","transitTime":"2:00", "allowLuggage":true,"layoverNumber":"0","price":"200"},
         {"id":6,"flightNumber":"AE20599","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-28T10:00:00","transitTime":"1:00", "allowLuggage":false, "layoverNumber":"1", "price":"300"},
-        {"id":8,"flightNumber":"IB70456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-27T09:00:00","transitTime":"2:00","allowLuggage":false, "layoverNumber":"2","price":"200"}
+        {"id":8,"flightNumber":"IB70456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-27T09:00:00","transitTime":"2:00","allowLuggage":false, "layoverNumber":"2","price":"200","tripType":false}
 
     ]);
 
