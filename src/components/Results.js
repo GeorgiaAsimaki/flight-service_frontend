@@ -21,14 +21,21 @@ const Results = () => {
         {"id":1,"flightNumber":"RY20233","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-22T09:00:00","timeTransit":"2:00","scalesNumber":"0", "allowLuggage":true,"price":"200","tripType":false},
         {"id":2,"flightNumber":"AE00233","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-22T10:00:00","timeTransit":"1:00","scalesNumber":"1", "allowLuggage":false, "price":"300","tripType":true},
         {"id":3,"flightNumber":"IB33456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-22T09:30:00","timeTransit":"3:00","scalesNumber":"2", "allowLuggage":true, "price":"500","tripType":true},
-        {"id":4,"flightNumber":"IB70456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-23T09:00:00","timeTransit":"2:00","scalesNumber":"1", "allowLuggage":false, "price":"200","tripType":false}
-    ])
+    ]);
+
+    const [ret,setReturn]=React.useState([
+        {"id":5,"flightNumber":"RY19999","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-26T09:00:00","timeTransit":"2:00","scalesNumber":"0", "allowLuggage":true,"price":"200","tripType":false},
+        {"id":6,"flightNumber":"AE20599","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-28T10:00:00","timeTransit":"1:00","scalesNumber":"1", "allowLuggage":false, "price":"300","tripType":true},
+        {"id":8,"flightNumber":"IB70456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-27T09:00:00","timeTransit":"2:00","scalesNumber":"2", "allowLuggage":false, "price":"200","tripType":false}
+
+    ]);
 
     const [comp,setComp]=React.useState('All');
     const [scales,setScales]=React.useState("0");
     const [lug,setLuggage]=React.useState(false);
     const [time,setTimeF]=React.useState("0");
     const [info,setInfo]=React.useState(input);
+    const [infoRet,setInfoReturn]=React.useState(ret);
 
 
 
@@ -43,31 +50,35 @@ const Results = () => {
     const handleScalesF = (e) => {
         setScales(e.target.value);
         if(e.target.value==="1"){
-                 info.sort((a, b) => a["scalesNumber"] - b["scalesNumber"]);
+            info.sort((a, b) => a["scalesNumber"] - b["scalesNumber"]);
+            infoRet.sort((a, b) => a["scalesNumber"] - b["scalesNumber"]);
+
         }
         else if(e.target.value==="2"){
             info.sort((a, b) => b["scalesNumber"] - a["scalesNumber"]);
+            infoRet.sort((a, b) => b["scalesNumber"] - a["scalesNumber"]);
+
         }
     }
 
-    const handleInfo = () => {
-        setInfo(input);
-    }
 
     const handleTimeF = (e) => {
         setTimeF(e.target.value);
         if(e.target.value==="1"){
             info.sort((a, b) => a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T","") - b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T",""));
+            infoRet.sort((a, b) => a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T","") - b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T",""));
+
         }
         else if(e.target.value==="2"){
             info.sort((a, b) => b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T","") - a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T",""));
+            infoRet.sort((a, b) => b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T","") - a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T",""));
         }
     }
 
     return(
         <Box sx={{ width: '100%' }}>
              <Box sx={{ borderTop:2, borderBottom: 2, borderColor: 'divider', bgcolor:'#f5f5f5' }}>
-                <FormControl sx={{m: 2, top:5,  minWidth: 120 }} >
+                <FormControl sx={{m: 3, top:5,  minWidth: 120 }} >
                      <InputLabel id="demo-simple-select-helper-label">Airline </InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
@@ -82,7 +93,7 @@ const Results = () => {
                                 <MenuItem value={'RYANAIR'}> RYANAIR </MenuItem>
                         </Select>
                 </FormControl>
-                <FormControl sx={{m: 2, top:5,  minWidth: 120 }} >
+                <FormControl sx={{m: 3, top:5,  minWidth: 120 }} >
                     <InputLabel id="demo-simple-select-helper-label">Luggage</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
@@ -95,7 +106,7 @@ const Results = () => {
                             <MenuItem value={false}> - </MenuItem>
                         </Select>
                 </FormControl>
-                <FormControl sx={{m: 2, top:5,  minWidth: 175 }} >
+                <FormControl sx={{m: 3, top:5,  minWidth: 175 }} >
                     <InputLabel id="demo-simple-select-helper-label">Scales</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
@@ -109,7 +120,7 @@ const Results = () => {
                             <MenuItem value={"2"}>Descending order</MenuItem>
                         </Select>
                 </FormControl>
-                <FormControl sx={{m: 2, top:5,  minWidth: 175 }} >
+                <FormControl sx={{m: 3, top:5,  minWidth: 175 }} >
                     <InputLabel id="demo-simple-select-helper-label">Schedule</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
@@ -124,9 +135,33 @@ const Results = () => {
                         </Select>
                 </FormControl>
              </Box>
-
+             <Box sx={{ borderTop:2, borderBottom: 2, borderColor: 'divider', bgcolor:'#dcdcdc' }}>
+                <p>Departure</p>
+             </Box>
             <Stack spacing={2}>
                 {info.map((item,index) => (
+                         <Informations
+                            company={item["airline"]}
+                            companyF={comp}
+                            flightNum = {item["flightNumber"]}
+                            dateDep = {item["dateTimeDeparture"]}
+                            timeTransit = {item["timeTransit"]}
+                            layover = {item["scalesNumber"]}
+                            layoverF = {scales}
+                            luggage = {item["allowLuggage"]}
+                            luggageF = {lug}
+                            price = {item["price"]}
+                            >
+                        </Informations>
+
+                ))
+                }
+            </Stack>
+            <Box sx={{ borderTop:2, borderBottom: 2, borderColor: 'divider', bgcolor:'#dcdcdc' }}>
+                <p>Return</p>
+            </Box>
+            <Stack spacing={2}>
+                {infoRet.map((item,index) => (
                          <Informations
                             company={item["airline"]}
                             companyF={comp}
