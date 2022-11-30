@@ -18,7 +18,7 @@ const bull = (
 const Informations = ({company, companyF, flightNum, timeDep, dateDep, timeTransit, layover, layoverF, layoverNum, luggage, luggageF, price}) => {
   return (
     <>
-        {(companyF=='All' || company==companyF)  && ((layoverF===true && layover===layoverNum)|| layoverF===false) && (luggageF===false || (luggageF===true && luggage)) && (
+        {(companyF=='All' || company==companyF) && (luggageF===false || (luggageF===true && luggage)) && (
                 <Card sx={{ minWidth: 175 }} variant="outlined">
                   <CardContent>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
