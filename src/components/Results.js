@@ -82,15 +82,15 @@ const Results = () => {
                      <InputLabel id="demo-simple-select-helper-label">Airline </InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
-                            id="demo-simple-select-helper"
+                            id="airlineFilter"
                             value={comp}
                             label="Airline"
                             onChange={handleAirlineF}
                             >
-                                <MenuItem value={'All'}> All </MenuItem>
-                                <MenuItem value={'AEGEAN'}> AEGEAN </MenuItem>
-                                <MenuItem value={'IBERIA'}> IBERIA </MenuItem>
-                                <MenuItem value={'RYANAIR'}> RYANAIR </MenuItem>
+                                <MenuItem id="allAir" value={'All'}> All </MenuItem>
+                                <MenuItem id="aegean" value={'AEGEAN'}> AEGEAN </MenuItem>
+                                <MenuItem id="iberia" value={'IBERIA'}> IBERIA </MenuItem>
+                                <MenuItem id="ryanair" value={'RYANAIR'}> RYANAIR </MenuItem>
                         </Select>
                 </FormControl>
                 <FormControl sx={{m: 3, top:5,  minWidth: 120 }} >
