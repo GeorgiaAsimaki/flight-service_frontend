@@ -24,9 +24,9 @@ const Results = () => {
     ]);
 
     const [ret,setReturn]=React.useState([
-        {"id":5,"flightNumber":"RY19999","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-26T09:00:00","transitTime":"2:00", "allowLuggage":true,"layoverNumber":"0","price":"200"},
-        {"id":6,"flightNumber":"AE20599","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-28T10:00:00","transitTime":"1:00", "allowLuggage":false, "layoverNumber":"1", "price":"300"},
-        {"id":8,"flightNumber":"IB70456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-27T09:00:00","transitTime":"2:00","allowLuggage":false, "layoverNumber":"2","price":"200","tripType":false}
+        {"id":5,"flightNumber":"RY19999","origin":"ROMANIA","destination":"SPAIN","airline":"RYANAIR","dateTimeDeparture":"2022-11-26 09:00:00","transitTime":"2:00", "allowLuggage":true,"layoverNumber":"0","price":"200"},
+        {"id":6,"flightNumber":"AE20599","origin":"ROMANIA","destination":"SPAIN","airline":"AEGEAN","dateTimeDeparture":"2022-11-28 10:00:00","transitTime":"1:00", "allowLuggage":false, "layoverNumber":"1", "price":"300"},
+        {"id":8,"flightNumber":"IB70456","origin":"ROMANIA","destination":"SPAIN","airline":"IBERIA","dateTimeDeparture":"2022-11-27 09:00:00","transitTime":"2:00","allowLuggage":false, "layoverNumber":"2","price":"200","tripType":false}
 
     ]);
 
@@ -50,13 +50,13 @@ const Results = () => {
     const handleScalesF = (e) => {
         setScales(e.target.value);
         if(e.target.value==="1"){
-            info.sort((a, b) => a["scalesNumber"] - b["scalesNumber"]);
-            infoRet.sort((a, b) => a["scalesNumber"] - b["scalesNumber"]);
+            info.sort((a, b) => a["layoverNumber"] - b["layoverNumber"]);
+            infoRet.sort((a, b) => a["layoverNumber"] - b["layoverNumber"]);
 
         }
         else if(e.target.value==="2"){
-            info.sort((a, b) => b["scalesNumber"] - a["scalesNumber"]);
-            infoRet.sort((a, b) => b["scalesNumber"] - a["scalesNumber"]);
+            info.sort((a, b) => b["layoverNumber"] - a["layoverNumber"]);
+            infoRet.sort((a, b) => b["layoverNumber"] - a["layoverNumber"]);
 
         }
     }
@@ -65,13 +65,13 @@ const Results = () => {
     const handleTimeF = (e) => {
         setTimeF(e.target.value);
         if(e.target.value==="1"){
-            info.sort((a, b) => a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T","") - b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T",""));
-            infoRet.sort((a, b) => a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T","") - b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T",""));
+            info.sort((a, b) => a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll(" ","") - b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll(" ",""));
+            infoRet.sort((a, b) => a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll(" ","") - b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll(" ",""));
 
         }
         else if(e.target.value==="2"){
-            info.sort((a, b) => b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T","") - a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T",""));
-            infoRet.sort((a, b) => b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T","") - a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll("T",""));
+            info.sort((a, b) => b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll(" ","") - a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll(" ",""));
+            infoRet.sort((a, b) => b["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll(" ","") - a["dateTimeDeparture"].replaceAll("-","").replaceAll(":","").replaceAll(" ",""));
         }
     }
 
@@ -145,8 +145,8 @@ const Results = () => {
                             companyF={comp}
                             flightNum = {item["flightNumber"]}
                             dateDep = {item["dateTimeDeparture"]}
-                            timeTransit = {item["timeTransit"]}
-                            layover = {item["scalesNumber"]}
+                            timeTransit = {item["transitTime"]}
+                            layover = {item["layoverNumber"]}
                             layoverF = {scales}
                             luggage = {item["allowLuggage"]}
                             luggageF = {lug}
@@ -167,8 +167,8 @@ const Results = () => {
                             companyF={comp}
                             flightNum = {item["flightNumber"]}
                             dateDep = {item["dateTimeDeparture"]}
-                            timeTransit = {item["timeTransit"]}
-                            layover = {item["scalesNumber"]}
+                            timeTransit = {item["transitTime"]}
+                            layover = {item["layoverNumber"]}
                             layoverF = {scales}
                             luggage = {item["allowLuggage"]}
                             luggageF = {lug}
