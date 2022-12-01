@@ -72,7 +72,7 @@ const Informations = ({company, companyF, flightNum, dateDep, timeTransit, layov
                       {luggage && (" yes")}
                       {!luggage && (" no")}
                       <br />
-                      Total price: {price}
+                      Total price: {price} €
                     </Typography>
                   </CardContent>
                 </Card>
