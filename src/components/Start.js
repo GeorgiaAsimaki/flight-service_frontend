@@ -18,6 +18,7 @@ import Dates from './Dates';
 export default function SelectLabels() {
 
   const [origin, setOrigin] = React.useState('');
+  const [destinations, setDestinations] = React.useState(["ATHENS(ATH)","MADRID(MAD)","BARCELONA(BCN)","AMSTERDAM(AMS)","HAMBURG(HAM)"]);
   const [destination, setDestination] = React.useState('');
   const [value, setValue] = React.useState(false);
   const [formdest,setFormDest] = React.useState(false);
@@ -26,6 +27,9 @@ export default function SelectLabels() {
   const handleOrigin = (event) => {
     setOrigin(event.target.value);
     setFormOr(true);
+
+    //here we change destination according to origin
+    setDestinations(destinations);
   };
 
   const handleDestination = (event) => {
@@ -71,11 +75,9 @@ export default function SelectLabels() {
                         <MenuItem value="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value={1}>ATHENS(ATH)</MenuItem>
-                        <MenuItem value={2}>MADRID(MAD)</MenuItem>
-                        <MenuItem value={3}>BARCELONA(BCN)</MenuItem>
-                        <MenuItem value={4}>AMSTERDAM(AMS)</MenuItem>
-                        <MenuItem value={5}>HAMBURG(HAM)</MenuItem>
+                        {destinations.map((item,index) => (
+                            <MenuItem value={index}>{item}</MenuItem>
+                        ))}
                       </Select>
                       <FormHelperText>Choose Destination</FormHelperText>
               </FormControl>
