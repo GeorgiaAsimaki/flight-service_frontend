@@ -41,7 +41,7 @@ export default function SelectLabels() {
                 <InputLabel id="demo-simple-select-helper-label">ORIGIN</InputLabel>
                 <Select
                   labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
+                  id="origin"
                   value={origin}
                   label="ORIGIN"
                   onChange={handleOrigin}
@@ -49,11 +49,11 @@ export default function SelectLabels() {
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={1}>ATHENS(ATH)</MenuItem>
-                  <MenuItem value={2}>MADRID(MAD)</MenuItem>
-                  <MenuItem value={3}>BARCELONA(BCN)</MenuItem>
-                  <MenuItem value={4}>AMSTERDAM(AMS)</MenuItem>
-                  <MenuItem value={5}>HAMBURG(HAM)</MenuItem>
+                  <MenuItem id="ath" value={1}>ATHENS(ATH)</MenuItem>
+                        <MenuItem id="mad" value={2}>MADRID(MAD)</MenuItem>
+                        <MenuItem id="bcn" value={3}>BARCELONA(BCN)</MenuItem>
+                        <MenuItem id="ams" value={4}>AMSTERDAM(AMS)</MenuItem>
+                        <MenuItem id="ham" value={5}>HAMBURG(HAM)</MenuItem>
                 </Select>
                 <FormHelperText>Choose Origin</FormHelperText>
               </FormControl>
@@ -63,7 +63,7 @@ export default function SelectLabels() {
                       <InputLabel id="demo-simple-select-helper-label">DESTINATION</InputLabel>
                       <Select
                         labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
+                        id="destination"
                         value={destination}
                         label="DESTINATION"
                         onChange={handleDestination}
@@ -71,11 +71,11 @@ export default function SelectLabels() {
                         <MenuItem value="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value={1}>ATHENS(ATH)</MenuItem>
-                        <MenuItem value={2}>MADRID(MAD)</MenuItem>
-                        <MenuItem value={3}>BARCELONA(BCN)</MenuItem>
-                        <MenuItem value={4}>AMSTERDAM(AMS)</MenuItem>
-                        <MenuItem value={5}>HAMBURG(HAM)</MenuItem>
+                        <MenuItem id="ath2" value={1}>ATHENS(ATH)</MenuItem>
+                        <MenuItem id="mad2" value={2}>MADRID(MAD)</MenuItem>
+                        <MenuItem id="bcn2" value={3}>BARCELONA(BCN)</MenuItem>
+                        <MenuItem id="ams2" value={4}>AMSTERDAM(AMS)</MenuItem>
+                        <MenuItem id="ham2" value={5}>HAMBURG(HAM)</MenuItem>
                       </Select>
                       <FormHelperText>Choose Destination</FormHelperText>
               </FormControl>
@@ -107,7 +107,7 @@ export default function SelectLabels() {
 
               <Grid item xs={12}>
                 <FormControl sx={{m: 2, top:100,  minWidth: 220 }}>
-                    <Button variant="contained" href="results">
+                    <Button id="search" variant="contained" href="results">
                         Search
                     </Button>
 
