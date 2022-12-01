@@ -97,41 +97,41 @@ const Results = () => {
                     <InputLabel id="demo-simple-select-helper-label">Luggage</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
-                            id="demo-simple-select-helper"
+                            id="luggageFilter"
                             value={lug}
                             label="Luggage"
                             onChange={handleLuggageF}
                         >
-                            <MenuItem value={true}>Allowed</MenuItem>
-                            <MenuItem value={false}> - </MenuItem>
+                            <MenuItem id="allowL" value={true}>Allowed</MenuItem>
+                            <MenuItem id='notAllowedL' value={false}> - </MenuItem>
                         </Select>
                 </FormControl>
                 <FormControl sx={{m: 3, top:5,  minWidth: 175 }} >
                     <InputLabel id="demo-simple-select-helper-label">Scales</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
-                            id="demo-simple-select-helper"
+                            id="scalesFilter"
                             value={scales}
                             label="Scales"
                             onChange={handleScalesF}
                         >
-                            <MenuItem value={"0"}>-</MenuItem>
-                            <MenuItem value={"1"}>Ascending order</MenuItem>
-                            <MenuItem value={"2"}>Descending order</MenuItem>
+                            <MenuItem id="noScales" value={"0"}>-</MenuItem>
+                            <MenuItem id="ascendScales" value={"1"}>Ascending order</MenuItem>
+                            <MenuItem id="descendScales"value={"2"}>Descending order</MenuItem>
                         </Select>
                 </FormControl>
                 <FormControl sx={{m: 3, top:5,  minWidth: 175 }} >
                     <InputLabel id="demo-simple-select-helper-label">Schedule</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
-                            id="demo-simple-select-helper"
+                            id="scheduleFilter"
                             value={time}
                             label="Schedule"
                             onChange={handleTimeF}
                         >
-                            <MenuItem value={"0"}>-</MenuItem>
-                            <MenuItem value={"1"}>Ascending order</MenuItem>
-                            <MenuItem value={"2"}>Descending order</MenuItem>
+                            <MenuItem id="noSchedule" value={"0"}>-</MenuItem>
+                            <MenuItem id="ascendSchedule" value={"1"}>Ascending order</MenuItem>
+                            <MenuItem id="descendSchedule" value={"2"}>Descending order</MenuItem>
                         </Select>
                 </FormControl>
              </Box>
