@@ -18,6 +18,7 @@ import Dates from './Dates';
 export default function SelectLabels() {
 
   const [origin, setOrigin] = React.useState('');
+  const [destinations, setDestinations] = React.useState(["ATHENS(ATH)","MADRID(MAD)","BARCELONA(BCN)","AMSTERDAM(AMS)","HAMBURG(HAM)"]);
   const [destination, setDestination] = React.useState('');
   const [value, setValue] = React.useState(false);
   const [formdest,setFormDest] = React.useState(false);
@@ -26,6 +27,9 @@ export default function SelectLabels() {
   const handleOrigin = (event) => {
     setOrigin(event.target.value);
     setFormOr(true);
+
+    //here we change destination according to origin
+    setDestinations(destinations);
   };
 
   const handleDestination = (event) => {
