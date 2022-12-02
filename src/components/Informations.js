@@ -52,55 +52,55 @@ const Informations = ({company, companyF, flightNum, dateDep, timeTransit, layov
     <>
         {(companyF=='All' || company==companyF) && (luggageF===false || (luggageF===true && luggage)) && (
                 <>
-                <Card sx={{ minWidth: 175 }} variant="outlined" onClick={handlePick}>
-                  <CardContent>
-                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                      {company}
-                    </Typography>
-                    <Typography variant="h5" component="div">
-                      {flightNum}
-                    </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                      {dateDep.replaceAll("T","  ")}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Transit time: {timeTransit}
-                      <br />
-                      Layover: {layover}
-                      <br />
-                      Luggage allowance in cabin:
-                      {luggage && (" yes")}
-                      {!luggage && (" no")}
-                      <br />
-                      Total price: {price} €
-                    </Typography>
-                  </CardContent>
-                </Card>
-                <>
-                   { picked && (
-                        <Box sx={{ width: '100%' }}>
-                            <Box sx={{ borderTop:2, borderBottom: 2, borderColor: 'divider', bgcolor:'#f5f5f5' }}>
-                                <FormControl sx={{m: 3, top:5,  minWidth: 120 }} >
-                                    <Button variant="contained" onClick={addPassenger} >
-                                        Add a passenger
-                                    </Button>
-                                </FormControl>
-                                <FormControl sx={{m: 3, top:5,  minWidth: 120 }} >
-                                    <Button variant="contained" onClick={removePassenger} >
-                                        Remove a passenger
-                                    </Button>
-                                </FormControl>
+                    <Card sx={{ minWidth: 175 }} variant="outlined" onClick={handlePick}>
+                      <CardContent >
+                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                          {company}
+                        </Typography>
+                        <Typography variant="h5" component="div">
+                          {flightNum}
+                        </Typography>
+                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                          {dateDep}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          Transit time: {timeTransit}
+                          <br />
+                          Layover: {layover}
+                          <br />
+                          Luggage allowance in cabin:
+                          {luggage && (" yes")}
+                          {!luggage && (" no")}
+                          <br />
+                          Total price: {price} €
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                    <>
+                       { picked && (
+                            <Box sx={{ width: '100%' }}>
+                                <Box sx={{ borderTop:2, borderBottom: 2, borderColor: 'divider', bgcolor:'#f5f5f5' }}>
+                                    <FormControl sx={{m: 3, top:5,  minWidth: 120 }} >
+                                        <Button id="add" variant="contained" onClick={addPassenger} >
+                                            Add a passenger
+                                        </Button>
+                                    </FormControl>
+                                    <FormControl sx={{m: 3, top:5,  minWidth: 120 }} >
+                                        <Button id="remove" variant="contained" onClick={removePassenger} >
+                                            Remove a passenger
+                                        </Button>
+                                    </FormControl>
 
-                                <Stack spacing={2}>
-                                    {passengers.map((item,index) => (
-                                        <Passenger num={index}></Passenger>
-                                    ))}
-                                    </Stack>
+                                    <Stack spacing={2}>
+                                        {passengers.map((item,index) => (
+                                            <Passenger num={index}></Passenger>
+                                        ))}
+                                        </Stack>
+                                </Box>
                             </Box>
-                        </Box>
 
-                   )}
-               </>
+                       )}
+                   </>
                </>
         )}
 
