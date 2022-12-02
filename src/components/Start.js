@@ -15,7 +15,7 @@ import Switch from './Switch';
 import Dates from './Dates';
 
 
-export default function SelectLabels() {
+export default function Start() {
 
   const [origin, setOrigin] = React.useState('');
   const [destinations, setDestinations] = React.useState(["ATHENS(ATH)","MADRID(MAD)","BARCELONA(BCN)","AMSTERDAM(AMS)","HAMBURG(HAM)"]);
